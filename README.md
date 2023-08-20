@@ -57,9 +57,9 @@ xmlns:controls="https://codecell.ir/maui/controls/persianDatePicker"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <controls:PersianDatePicker /> 
+            <controls:PersianDatePicker PlaceHolder="از تاریخ" /> 
 
-            <controls:PersianDatePicker PersianDate="1367/01/20" />
+            <controls:PersianDatePicker PersianDate="1367/01/20" PlaceHolder="تا تاریخ" />
 
             <controls:PersianDatePicker PersianDate="{Binding FromDate}" />
 

@@ -10,9 +10,9 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <controls:PersianDatePicker />
+            <controls:PersianDatePicker PlaceHolder="از تاریخ"/>
 
-            <controls:PersianDatePicker PersianDate="1367/01/20" />
+            <controls:PersianDatePicker PersianDate="1367/01/20" PlaceHolder="تا تاریخ" />
 
         </VerticalStackLayout>
     </ScrollView>
