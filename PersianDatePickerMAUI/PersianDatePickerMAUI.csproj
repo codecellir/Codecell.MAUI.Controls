@@ -18,22 +18,31 @@
 
 		<PackageId>Codecell.PersiandatePicker.MAUI</PackageId>
 		<Title>Persian DatePicker Control for .NET MAUI</Title>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<Authors>SohrabGheisari</Authors>
 		<Product>Codecell.PersiandatePicker.MAUI</Product>
 		<Description>Persian DatePicker Control for .NET MAUI</Description>
 		<Copyright>© codecell.ir Sohrab Gheisari</Copyright>
-		<PackageProjectUrl></PackageProjectUrl>
-		<RepositoryUrl></RepositoryUrl>
+		<PackageProjectUrl>https://github.com/codecellir/Codecell.MAUI.Controls</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/codecellir/Codecell.MAUI.Controls</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>picker;date,.net maui;persian</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>logo128.png</PackageIcon>
 	</PropertyGroup>
 
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Fonts\iranyekan.ttf" />
 	  <EmbeddedResource Include="Fonts\MaterialIcons-Regular.ttf" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <None Include="..\logo128.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
