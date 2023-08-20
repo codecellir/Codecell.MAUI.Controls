@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{85F2A2EC-4157-49AD-97FB-7793ED5B9B5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{EB834B49-1570-452D-A0ED-8F7C334F557D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersianDatePickerMAUI", "PersianDatePickerMAUI\PersianDatePickerMAUI.csproj", "{D86BBEBC-8615-4EBA-B7F5-F79473A25584}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamplePersianDatePicker", "SamplePersianDatePicker\SamplePersianDatePicker.csproj", "{78877146-01C0-46C2-9BBE-E53D8BAAB650}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D86BBEBC-8615-4EBA-B7F5-F79473A25584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86BBEBC-8615-4EBA-B7F5-F79473A25584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86BBEBC-8615-4EBA-B7F5-F79473A25584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86BBEBC-8615-4EBA-B7F5-F79473A25584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D86BBEBC-8615-4EBA-B7F5-F79473A25584} = {85F2A2EC-4157-49AD-97FB-7793ED5B9B5B}
+		{78877146-01C0-46C2-9BBE-E53D8BAAB650} = {EB834B49-1570-452D-A0ED-8F7C334F557D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDE42B4E-FE34-4783-9FD7-1B2AECA057D3}
+	EndGlobalSection
+EndGlobal

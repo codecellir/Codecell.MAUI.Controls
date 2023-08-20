@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="PersianDatePickerMAUI.Pages.PersianCalendarPopupPage"
+                  xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+                  xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+                  xmlns:controls="clr-namespace:PersianDatePickerMAUI.Controls"
+                  xmlns:helpers="clr-namespace:PersianDatePickerMAUI.Common"
+                  Title="PersianCalendarPopupPage"
+                  BackgroundColor="#80000000"
+                  CloseWhenBackgroundIsClicked="True"
+                  HasSystemPadding="False"
+                  FlowDirection="RightToLeft"
+                  x:Name="this">
+    <!--<mopups:PopupPage.Animation>
+        <Animations:MoveAnimation PositionIn="Top" PositionOut="Top" />
+    </mopups:PopupPage.Animation>-->
+    <mopups:PopupPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#fff" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="CornerRadius" Value="25" />
+            <Setter Property="FontFamily" Value="iranyekan" />
+        </Style>
+        <Color x:Key="SelectedColor">#6E6E6E</Color>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="iranyekan" />
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+
+    </mopups:PopupPage.Resources>
+
+    <Border StrokeShape="RoundRectangle 15"
+            StrokeThickness="0"
+            Stroke="#ccc"
+            WidthRequest="320"
+            HeightRequest="430"
+            Background="#fff"
+            VerticalOptions="CenterAndExpand">
+        <VerticalStackLayout BindingContext="{x:Reference this}">
+
+            <StackLayout HeightRequest="80"
+                     Background="blue"
+                     Padding="15">
+                <Label Text="{Binding Year}"
+                   TextColor="White"
+                   FontAttributes="Bold"/>
+                <Label Text="{Binding ShortName}"
+                   TextColor="White"
+                   FontSize="20"
+                   Margin="0,0,0,15"/>
+            </StackLayout>
+
+            <StackLayout Padding="10">
+                <Grid ColumnDefinitions="auto,*,auto">
+                    <Border WidthRequest="50"
+                        HeightRequest="50"
+                        StrokeShape="RoundRectangle 25"
+                        StrokeThickness="0"
+                        Background="#f5f5f5"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                        <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_right}"
+                           FontFamily="materialIcon"
+                           FontSize="25"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PrevMonthCommand}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                    <Label Grid.Column="1"
+                       Text="{Binding MonthName}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"/>
+
+                    <Border Grid.Column="2"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        StrokeShape="RoundRectangle 25"
+                        StrokeThickness="0"
+                        Background="#f5f5f5"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                        <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_left}"
+                           FontFamily="materialIcon"
+                           FontSize="25"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NextMonthCommand}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Padding="10,5,10,2">
+
+                <CollectionView SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                     Span="7"
+                                     VerticalItemSpacing="2"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 20"
+                                StrokeThickness="0"
+                                WidthRequest="30"
+                                HeightRequest="25">
+                                <Label Text="{Binding}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   FontSize="12"
+                                   FontAttributes="Bold"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>ش</x:String>
+                            <x:String>ی</x:String>
+                            <x:String>د</x:String>
+                            <x:String>س</x:String>
+                            <x:String>چ</x:String>
+                            <x:String>پ</x:String>
+                            <x:String>ج</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                </CollectionView>
+
+                <CollectionView ItemsSource="{Binding ItemSource}"
+                                SelectionMode="Single"
+                                SelectionChanged="dayGrid_SelectionChanged"
+                                x:Name="dayGrid">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                     Span="7"
+                                     VerticalItemSpacing="1"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 17"
+                                StrokeThickness="0"
+                                WidthRequest="35"
+                                HeightRequest="35"
+                                Background="{Binding Background}">
+                                <Label Text="{Binding Day}"
+                                   IsVisible="{Binding Show}"
+                                   FontSize="12"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+
+
+            <StackLayout Padding="0">
+                <Button Text="انصراف"
+                    TextColor="Blue"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Start"
+                    Margin="0,-20,5,10"
+                    HeightRequest="40"
+                    FontSize="12"
+                    Clicked="ButtonCancel_Clicked"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </Border>
+</mopups:PopupPage>
