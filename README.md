@@ -73,13 +73,13 @@ xmlns:controls="https://codecell.ir/maui/controls/persianDatePicker"
 
 ## Screenshots
 
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/main/screenshots/screen_1.png?raw=true)
+![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_1.png?raw=true)
 
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/main/screenshots/screen_2.png?raw=true)
+![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_2.png?raw=true)
 
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/main/screenshots/screen_3.png?raw=true)
+![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_3.png?raw=true)
 
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/main/screenshots/screen_4.png?raw=true)
+![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_4.png?raw=true)
 
 
 
