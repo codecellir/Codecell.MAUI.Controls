@@ -1,11 +1,17 @@
 ## Codecell.MAUI.Controls
 Custom Persian Date Picker Control for .NET MAUI (Android)
 
+## Features
+
+- MVVM
+- Month Navigation
+- Year Navigation
+
 ## Installation
 You can download the latest version of `Codecell.PersiandatePicker.MAUI` from [Github repository](https://github.com/codecellir/Codecell.MAUI.Controls).
 To install via `nuget`:
 ```
-Install-Package Codecell.PersiandatePicker.MAUI -Version 1.0.3
+Install-Package Codecell.PersiandatePicker.MAUI -Version 1.1.0
 ```
 Install from [Nuget](https://www.nuget.org/packages/Codecell.PersiandatePicker.MAUI) directly.
 
@@ -76,11 +82,6 @@ xmlns:controls="https://codecell.ir/maui/controls/persianDatePicker"
 ![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_1.png?raw=true)
 
 ![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_2.png?raw=true)
-
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_3.png?raw=true)
-
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_4.png?raw=true)
-
 
 
 ## Tutorial video
