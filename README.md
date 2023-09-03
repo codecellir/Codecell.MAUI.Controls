@@ -81,7 +81,7 @@ xmlns:controls="https://codecell.ir/maui/controls/persianDatePicker"
 
 ![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_1.png?raw=true)
 
-![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_2.png?raw=true)
+![App Screenshot](https://github.com/codecellir/Codecell.MAUI.Controls/blob/master/screenshots/screen_year_navigate_2.png)
 
 
 ## Tutorial video
