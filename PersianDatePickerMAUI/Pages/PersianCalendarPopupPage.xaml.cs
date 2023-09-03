@@ -22,6 +22,8 @@ public partial class PersianCalendarPopupPage
     public ICommand SelectDateCommand { get; set; }
     public ICommand NextMonthCommand { get; set; }
     public ICommand PrevMonthCommand { get; set; }
+    public ICommand NextYearCommand { get; set; }
+    public ICommand PrevYearCommand { get; set; }
     public PersianCalendarPopupPage(string date, string identifier)
     {
         _identifier = identifier;
@@ -30,6 +32,8 @@ public partial class PersianCalendarPopupPage
         SelectDateCommand = new Command<int>(SelectDate);
         NextMonthCommand = new Command(NextMonth);
         PrevMonthCommand = new Command(PrevMonth);
+        NextYearCommand = new Command(NextYear);
+        PrevYearCommand = new Command(PrevYear);
         InitializeComponent();
     }
 
@@ -42,6 +46,22 @@ public partial class PersianCalendarPopupPage
             WeakReferenceMessenger.Default.Send(new PersianDatePickerMessageTransfer($"{_identifier}#{result}"));
             MopupService.Instance.PopAsync();
         }
+    }
+    void NextYear()
+    {
+        var dateSplited = PersianDate.Split('/');
+        int.TryParse(dateSplited[0], out int year);
+        year++;
+        PersianDate = $"{year.ToString("D4")}/{dateSplited[1]}/{dateSplited[2]}";
+        InitItemSource(); ;
+    }
+    void PrevYear()
+    {
+        var dateSplited = PersianDate.Split('/');
+        int.TryParse(dateSplited[0], out int year);
+        year--;
+        PersianDate = $"{year.ToString("D4")}/{dateSplited[1]}/{dateSplited[2]}";
+        InitItemSource(); ;
     }
     void NextMonth()
     {

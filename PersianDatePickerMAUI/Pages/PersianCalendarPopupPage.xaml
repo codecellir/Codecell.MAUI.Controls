@@ -50,21 +50,72 @@
             StrokeThickness="0"
             Stroke="#ccc"
             WidthRequest="320"
-            HeightRequest="430"
+            HeightRequest="440"
             Background="#fff"
             VerticalOptions="CenterAndExpand">
         <VerticalStackLayout BindingContext="{x:Reference this}">
 
-            <StackLayout HeightRequest="80"
-                     Background="blue"
-                     Padding="15">
-                <Label Text="{Binding Year}"
-                   TextColor="White"
-                   FontAttributes="Bold"/>
-                <Label Text="{Binding ShortName}"
-                   TextColor="White"
-                   FontSize="20"
-                   Margin="0,0,0,15"/>
+            <StackLayout HeightRequest="90"
+                         Background="blue"
+                         Padding="15">
+
+                <StackLayout>
+                    <Grid RowDefinitions="*"
+                          ColumnDefinitions="*,Auto,*"
+                          RowSpacing="10"
+                          HorizontalOptions="Center">
+
+                        <Label Grid.Column="1"
+                               Text="{Binding Year}"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                        <Border Grid.Column="0"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                StrokeShape="RoundRectangle 15"
+                                StrokeThickness="0"
+                                Background="transparent"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Margin="0,0,5,0">
+                            <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_right}"
+                                   FontFamily="materialIcon"
+                                   FontSize="30"
+                                   TextColor="#fff"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrevYearCommand}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+                        <Border Grid.Column="2"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                StrokeShape="RoundRectangle 15"
+                                StrokeThickness="0"
+                                Background="transparent"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                Margin="5,0,0,0">
+                            <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_left}"
+                                   FontFamily="materialIcon"
+                                   FontSize="30"
+                                    TextColor="#fff"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NextYearCommand}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+                    </Grid>
+
+                    <Label Text="{Binding ShortName}"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           FontSize="20"
+                           Margin="0,0,5,5"/>
+                </StackLayout>
             </StackLayout>
 
             <StackLayout Padding="10">

@@ -18,7 +18,7 @@
 
 		<PackageId>Codecell.PersiandatePicker.MAUI</PackageId>
 		<Title>Persian DatePicker Control for .NET MAUI</Title>
-		<Version>1.0.3</Version>
+		<Version>1.1.0</Version>
 		<Authors>SohrabGheisari</Authors>
 		<Product>Codecell.PersiandatePicker.MAUI</Product>
 		<Description>Persian DatePicker Control for .NET MAUI</Description>
