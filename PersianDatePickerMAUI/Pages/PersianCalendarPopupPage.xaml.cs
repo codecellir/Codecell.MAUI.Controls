@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using Mopups.Services;
+using MauiPopup.Views;
 using PersianDatePickerMAUI.Common;
 using PersianDatePickerMAUI.Messages;
 using PersianDatePickerMAUI.Models;
@@ -9,13 +9,15 @@ using System.Windows.Input;
 
 namespace PersianDatePickerMAUI.Pages;
 
-public partial class PersianCalendarPopupPage
+public partial class PersianCalendarPopupPage : BasePopupPage
 {
     public string Year { get; set; }
     public string ShortName { get; set; }
     public string MonthName { get; set; }
     public string PersianDate { get; set; }
     public int SelectedDate { get; set; }
+    public int DayLayoutSize { get; set; }
+    public int DayLayoutShapeCorner { get; set; }
     private int _monthNumber;
     private string _identifier;
     public ObservableCollection<DateCellModel> ItemSource { get; set; } = new();
@@ -26,6 +28,14 @@ public partial class PersianCalendarPopupPage
     public ICommand PrevYearCommand { get; set; }
     public PersianCalendarPopupPage(string date, string identifier)
     {
+#if ANDROID || IOS
+        DayLayoutSize=36;
+        DayLayoutShapeCorner=18;
+#elif WINDOWS
+       DayLayoutSize=45;
+        DayLayoutShapeCorner=0;
+#endif
+
         _identifier = identifier;
         PersianDate = CommonHelpers.NormalizePersianDate(date);
         InitItemSource();
@@ -35,6 +45,13 @@ public partial class PersianCalendarPopupPage
         NextYearCommand = new Command(NextYear);
         PrevYearCommand = new Command(PrevYear);
         InitializeComponent();
+#if ANDROID || IOS
+        layout.WidthRequest = 320;
+        layout.HeightRequest = 440;
+#elif WINDOWS
+        layout.WidthRequest = 400;
+        layout.HeightRequest = 550;
+#endif
     }
 
     void SelectDate(int day)
@@ -44,7 +61,7 @@ public partial class PersianCalendarPopupPage
             var dateSplited = PersianDate.Split('/');
             var result = $"{dateSplited[0]}/{dateSplited[1]}/{day.ToString("D2")}";
             WeakReferenceMessenger.Default.Send(new PersianDatePickerMessageTransfer($"{_identifier}#{result}"));
-            MopupService.Instance.PopAsync();
+            MauiPopup.PopupAction.ClosePopup();
         }
     }
     void NextYear()
@@ -185,7 +202,7 @@ public partial class PersianCalendarPopupPage
     }
     private void ButtonCancel_Clicked(object sender, EventArgs e)
     {
-        MopupService.Instance.PopAsync();
+        MauiPopup.PopupAction.ClosePopup();
     }
     private void dayGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {

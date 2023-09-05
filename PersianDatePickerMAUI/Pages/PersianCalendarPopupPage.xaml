@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  x:Class="PersianDatePickerMAUI.Pages.PersianCalendarPopupPage"
-                  xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
-                  xmlns:Animations="clr-namespace:Mopups.Animations;assembly=Mopups"
-                  xmlns:controls="clr-namespace:PersianDatePickerMAUI.Controls"
-                  xmlns:helpers="clr-namespace:PersianDatePickerMAUI.Common"
-                  Title="PersianCalendarPopupPage"
-                  BackgroundColor="#80000000"
-                  CloseWhenBackgroundIsClicked="True"
-                  HasSystemPadding="False"
-                  FlowDirection="RightToLeft"
-                  x:Name="this">
-    <!--<mopups:PopupPage.Animation>
-        <Animations:MoveAnimation PositionIn="Top" PositionOut="Top" />
-    </mopups:PopupPage.Animation>-->
-    <mopups:PopupPage.Resources>
+<mauiPopup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="PersianDatePickerMAUI.Pages.PersianCalendarPopupPage"
+                         xmlns:mauiPopup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+                         xmlns:controls="clr-namespace:PersianDatePickerMAUI.Controls"
+                         xmlns:helpers="clr-namespace:PersianDatePickerMAUI.Common"
+                         Title="PersianCalendarPopupPage"
+                         ForegroundColor="Transparent"
+                         IsCloseOnBackgroundClick="True"
+                         FlowDirection="RightToLeft"
+                         x:Name="this">
+
+    <mauiPopup:BasePopupPage.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#fff" />
             <Setter Property="TextColor" Value="Black" />
@@ -44,15 +40,14 @@
             </Setter>
         </Style>
 
-    </mopups:PopupPage.Resources>
+    </mauiPopup:BasePopupPage.Resources>
 
     <Border StrokeShape="RoundRectangle 15"
             StrokeThickness="0"
             Stroke="#ccc"
-            WidthRequest="320"
-            HeightRequest="440"
             Background="#fff"
-            VerticalOptions="CenterAndExpand">
+            VerticalOptions="CenterAndExpand"
+            x:Name="layout">
         <VerticalStackLayout BindingContext="{x:Reference this}">
 
             <StackLayout HeightRequest="90"
@@ -208,16 +203,19 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border StrokeShape="RoundRectangle 17"
-                                StrokeThickness="0"
-                                WidthRequest="35"
-                                HeightRequest="35"
-                                Background="{Binding Background}">
+                            <Border StrokeThickness="0"
+                                    WidthRequest="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutSize}"
+                                    HeightRequest="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutSize}"
+                                    Background="{Binding Background}"
+                                    x:Name="dayLayout">
                                 <Label Text="{Binding Day}"
-                                   IsVisible="{Binding Show}"
-                                   FontSize="12"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"/>
+                                       IsVisible="{Binding Show}"
+                                       FontSize="12"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutShapeCorner}" />
+                                </Border.StrokeShape>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -238,4 +236,4 @@
             </StackLayout>
         </VerticalStackLayout>
     </Border>
-</mopups:PopupPage>
+</mauiPopup:BasePopupPage>

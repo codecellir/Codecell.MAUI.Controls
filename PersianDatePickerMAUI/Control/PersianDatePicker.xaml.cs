@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using Mopups.Services;
 using PersianDatePickerMAUI.Messages;
 using PersianDatePickerMAUI.Pages;
 
@@ -45,7 +44,7 @@ public partial class PersianDatePicker : ContentView
 
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        MopupService.Instance.PushAsync(new PersianCalendarPopupPage(PersianDate, _identifier));
+        MauiPopup.PopupAction.DisplayPopup(new PersianCalendarPopupPage(PersianDate, _identifier));
     }
 
 }
