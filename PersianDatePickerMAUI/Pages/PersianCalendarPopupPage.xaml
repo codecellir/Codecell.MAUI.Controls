@@ -16,14 +16,15 @@
         <Animations:MoveAnimation PositionIn="Top" PositionOut="Top" />
     </mopups:PopupPage.Animation>-->
     <mopups:PopupPage.Resources>
+        <Color x:Key="BlackColor">#0e161f</Color>
+        <Color x:Key="WhiteColor">#fff</Color>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#fff" />
-            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource BlackColor},Dark={StaticResource WhiteColor}}" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="CornerRadius" Value="25" />
             <Setter Property="FontFamily" Value="iranyekan" />
         </Style>
-        <Color x:Key="SelectedColor">#6E6E6E</Color>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="iranyekan" />
         </Style>
@@ -50,8 +51,8 @@
             StrokeThickness="0"
             Stroke="#ccc"
             WidthRequest="320"
-            HeightRequest="440"
-            Background="#fff"
+            HeightRequest="460"
+            Background="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}"
             VerticalOptions="CenterAndExpand">
         <VerticalStackLayout BindingContext="{x:Reference this}">
 
@@ -128,10 +129,11 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_right}"
-                           FontFamily="materialIcon"
-                           FontSize="25"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
+                               FontFamily="materialIcon"
+                               FontSize="25"
+                               TextColor="{AppThemeBinding Dark='#28C2D1',Light={StaticResource BlackColor}}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PrevMonthCommand}"/>
                         </Border.GestureRecognizers>
@@ -151,10 +153,11 @@
                         VerticalOptions="Center"
                         HorizontalOptions="Center">
                         <Label Text="{x:Static helpers:IconFont.Keyboard_arrow_left}"
-                           FontFamily="materialIcon"
-                           FontSize="25"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
+                               FontFamily="materialIcon"
+                               FontSize="25"
+                               TextColor="{AppThemeBinding Dark='#28C2D1',Light={StaticResource BlackColor}}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding NextMonthCommand}"/>
                         </Border.GestureRecognizers>
@@ -173,14 +176,16 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border StrokeShape="RoundRectangle 20"
-                                StrokeThickness="0"
-                                WidthRequest="30"
-                                HeightRequest="25">
+                                    StrokeThickness="0"
+                                    WidthRequest="30"
+                                    Background="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}"
+                                    HeightRequest="25">
                                 <Label Text="{Binding}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   FontSize="12"
-                                   FontAttributes="Bold"/>
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       FontSize="12"
+                                       TextColor="{AppThemeBinding Light={StaticResource BlackColor},Dark={StaticResource WhiteColor}}"
+                                       FontAttributes="Bold"/>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -209,15 +214,16 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border StrokeShape="RoundRectangle 17"
-                                StrokeThickness="0"
-                                WidthRequest="35"
-                                HeightRequest="35"
-                                Background="{Binding Background}">
+                                    StrokeThickness="0"
+                                    WidthRequest="35"
+                                    HeightRequest="35"
+                                    IsVisible="{Binding Show}"
+                                    Background="{Binding Background}">
                                 <Label Text="{Binding Day}"
-                                   IsVisible="{Binding Show}"
-                                   FontSize="12"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"/>
+                                       FontSize="{Binding FontSize}"
+                                       VerticalOptions="Center"
+                                       TextColor="{Binding TextColor}"
+                                       HorizontalOptions="Center"/>
                             </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -228,13 +234,13 @@
 
             <StackLayout Padding="0">
                 <Button Text="انصراف"
-                    TextColor="Blue"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="Start"
-                    Margin="0,-20,5,10"
-                    HeightRequest="40"
-                    FontSize="12"
-                    Clicked="ButtonCancel_Clicked"/>
+                        TextColor="{AppThemeBinding Light='blue',Dark={StaticResource WhiteColor}}"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Start"
+                        Margin="0,-5,5,10"
+                        HeightRequest="40"
+                        FontSize="12"
+                        Clicked="ButtonCancel_Clicked"/>
             </StackLayout>
         </VerticalStackLayout>
     </Border>

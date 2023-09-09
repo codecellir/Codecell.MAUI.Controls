@@ -5,8 +5,16 @@
              FlowDirection="RightToLeft"
              x:Name="this">
     <ContentView.Resources>
+        <Color x:Key="BlackColor">#0e161f</Color>
+        <Color x:Key="WhiteColor">#fff</Color>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="iranyekan"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource BlackColor},Dark={StaticResource WhiteColor}}"/>
+        </Style>
+
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}"/>
+            <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource BlackColor},Dark={StaticResource WhiteColor}}"/>
         </Style>
     </ContentView.Resources>
     <Frame BindingContext="{x:Reference this}"
