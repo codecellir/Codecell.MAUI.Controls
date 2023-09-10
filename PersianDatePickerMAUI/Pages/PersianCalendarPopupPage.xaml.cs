@@ -47,7 +47,7 @@ public partial class PersianCalendarPopupPage : BasePopupPage
         InitializeComponent();
 #if ANDROID || IOS
         layout.WidthRequest = 320;
-        layout.HeightRequest = 440;
+        layout.HeightRequest = 460;
 #elif WINDOWS
         layout.WidthRequest = 400;
         layout.HeightRequest = 550;

@@ -44,10 +44,9 @@
     <Border StrokeShape="RoundRectangle 15"
             StrokeThickness="0"
             Stroke="#ccc"
-            WidthRequest="320"
-            HeightRequest="460"
             Background="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}"
-            VerticalOptions="CenterAndExpand">
+            VerticalOptions="CenterAndExpand"
+            x:Name="layout">
         <VerticalStackLayout BindingContext="{x:Reference this}">
 
             <StackLayout HeightRequest="90"
@@ -211,26 +210,18 @@
                                     WidthRequest="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutSize}"
                                     HeightRequest="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutSize}"
                                     Background="{Binding Background}"
-                                    x:Name="dayLayout">
-                            <Border StrokeShape="RoundRectangle 17"
-                                    StrokeThickness="0"
-                                    WidthRequest="35"
-                                    HeightRequest="35"
                                     IsVisible="{Binding Show}"
-                                    Background="{Binding Background}">
+                                    x:Name="dayLayout">
                                 <Label Text="{Binding Day}"
                                        IsVisible="{Binding Show}"
-                                       FontSize="12"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Center"/>
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutShapeCorner}" />
-                                </Border.StrokeShape>
                                        FontSize="{Binding FontSize}"
                                        VerticalOptions="Center"
                                        TextColor="{Binding TextColor}"
                                        HorizontalOptions="Center"/>
-                            </Border>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutShapeCorner}" />
+                                    </Border.StrokeShape>
+                                </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
