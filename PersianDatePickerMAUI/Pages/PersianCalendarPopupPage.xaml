@@ -12,6 +12,8 @@
                          x:Name="this">
 
     <mauiPopup:BasePopupPage.Resources>
+        <Color x:Key="BlackColor">#0e161f</Color>
+        <Color x:Key="WhiteColor">#fff</Color>
         <Style TargetType="Button">
             <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource WhiteColor},Dark={StaticResource BlackColor}}" />
             <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource BlackColor},Dark={StaticResource WhiteColor}}" />
@@ -213,10 +215,9 @@
                                     IsVisible="{Binding Show}"
                                     x:Name="dayLayout">
                                 <Label Text="{Binding Day}"
-                                       IsVisible="{Binding Show}"
                                        FontSize="{Binding FontSize}"
-                                       VerticalOptions="Center"
                                        TextColor="{Binding TextColor}"
+                                       VerticalOptions="Center"
                                        HorizontalOptions="Center"/>
                                     <Border.StrokeShape>
                                         <RoundRectangle CornerRadius="{Binding Source={x:Reference dayGrid},Path=BindingContext.DayLayoutShapeCorner}" />
