@@ -176,7 +176,12 @@ public partial class PersianCalendarPopupPage : BasePopupPage
                 dayNumber = 0;
             }
 
-            cells.Add(new DateCellModel { Day = dayNumber, Background = dayNumber == SelectedDate ? Color.FromArgb("#919191") : Color.FromArgb("#fff") });
+            cells.Add(new DateCellModel {
+                Day = dayNumber,
+                Background = GetBackgroundColor(dayNumber == SelectedDate),
+                TextColor = GetTextColor(dayNumber == SelectedDate),
+                FontSize=GetFontSize(dayNumber==SelectedDate)
+            });
         }
 
         var clearIndex = 42 - (12 - weekSpan);
@@ -210,5 +215,49 @@ public partial class PersianCalendarPopupPage : BasePopupPage
         {
             SelectDate(cell.Day);
         }
+    }
+    private Color GetBackgroundColor(bool selected)
+    {
+        var theme = Application.Current.RequestedTheme;
+        if (theme == AppTheme.Light || theme==AppTheme.Unspecified)
+        {
+            if (selected)
+            {
+                return Color.FromArgb("#919191");
+            }
+            return Color.FromArgb("#fff");
+        }
+        else
+        {
+            if (selected)
+            {
+                return Color.FromArgb("#fff");
+            }
+            return Color.FromArgb("#0e161f");
+        }
+    } 
+    private Color GetTextColor(bool selected)
+    {
+        var theme = Application.Current.RequestedTheme;
+        if (theme == AppTheme.Light || theme==AppTheme.Unspecified)
+        {
+            if (selected)
+            {
+                return Color.FromArgb("#fff");
+            }
+            return Color.FromArgb("#0e161f");
+        }
+        else
+        {
+            if (selected)
+            {
+                return Color.FromArgb("#28C2D1");
+            }
+            return Color.FromArgb("#fff");
+        }
+    }
+    private int GetFontSize(bool selected)
+    {
+        return selected ? 14 : 12;
     }
 }
